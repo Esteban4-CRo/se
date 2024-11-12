@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Propuesta</title>
+    <!-- Cargar la biblioteca de EmailJS -->
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+    <script type="text/javascript">
+        // Inicializa EmailJS con tu API Key
+        (function() {
+            emailjs.init('6FSVUQSmRLt3Cxj-K');  // Sustituye 'tu_api_key' con tu clave API de EmailJS
+        })();
+
+        // Función para enviar el correo con la respuesta
+        function sendEmail(respuesta) {
+            // Los parámetros que se enviarán en el correo
+            const params = {
+                respuesta: respuesta,  // Valor de "SI" o "NO"
+            };
+
+            // Enviar el correo utilizando EmailJS
+            emailjs.send('service_ebp6xe5', 'template_gldjulk', params)
+                .then(function(response) {
+                    console.log('Correo enviado con éxito:', response);
+                    alert('¡Tu respuesta ha sido enviada!');
+                }, function(error) {
+                    console.log('Error al enviar el correo:', error);
+                    alert('Hubo un problema al enviar tu respuesta.');
+                });
+        }
+    </script>
+    
+<script type="text/javascript"
+src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script type="text/javascript">
+emailjs.init('6FSVUQSmRLt3Cxj-K')
+</script>
+</head>
+<body>
+    <div class="container">
+        <img src="Captura de pantalla 2024-11-11 210210.png" alt="Descripción de la imagen">
+        <h1>Holap!.., te dire que me pareces una persona interesante y quiero conocerte...si quieres, porq ps si t incomóda y no, ps mejor no. El punto es que quiero escucharte.</h1>
+        <p>Te gustaría ir a ver "We live in time" conmigo cuándo esté en cartelera? (O la que quieras)</p>
+        
+        <!-- Botones para enviar la respuesta -->
+        <div class="btn">
+            <button type="button" onclick="sendEmail('SI')">SI</button>
+            <button type="button" onclick="sendEmail('NO')">NO</button>
+        </div>
+    </div>
+</body>
+</html>
